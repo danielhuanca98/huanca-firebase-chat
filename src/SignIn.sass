@@ -1,0 +1,33 @@
+@import './env.sass'
+
+.signin-container 
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: center
+  background: white
+  font-size: 1.5rem
+  padding: 4rem
+
+  .logo
+    max-height: 10vh
+    margin-bottom: 10vh
+  .signin-button
+    margin-top: 10vh
+    display: flex
+    align-items: center
+    font-family: $didact
+    font-size: 1.2rem
+    border: 1px solid white
+    outline: none
+    background-color: white
+    border-radius: 50px
+    padding: 1rem
+    &:hover      
+      border: 1px solid red
+    @include box-shadow()
+    .google-icon
+      width: 2rem
+      height: 2rem
+      margin-right: 1rem
+    

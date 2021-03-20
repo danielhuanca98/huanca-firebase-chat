@@ -1,12 +1,13 @@
 import React from "react";
+import Message from "./Message";
 
 export default function ChatWindow({ messages }) {
   return (
-    <div>
+    <>
       {messages.length > 0 &&
         messages.map((msg) => {
-          return <div key={msg.msgID}>{msg.msgText}</div>;
+          return <Message key={msg.msgID} text={msg.msgText} />;
         })}
-    </div>
+    </>
   );
 }

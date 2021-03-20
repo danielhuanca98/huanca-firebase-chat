@@ -1,0 +1,46 @@
+@import './env'
+  
+.app-container
+  display: flex
+  flex-direction: column
+  width: 1000px
+  height: 80vh
+  background-color: rgba(255, 255, 255, 0.5)
+  backdrop-filter: blur(10px)
+  -webkit-backdrop-filter: blur(10px)
+
+  header
+    background-color: white
+    height: 100px
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    padding: 0 2rem
+    .logo
+      max-height: 50px
+    .logout
+      font-size: 1.3rem
+      font-weight: bold
+      cursor: pointer
+      &:hover
+        color: $main-color
+  .app-content
+    display: flex
+    flex: 1
+    flex-direction: row
+    .rooms-container
+      width: 25%
+  .chat-section
+    display: flex
+    flex: 1
+    flex-direction: column
+    position: relative
+    background-color: rgba(255, 255, 255, 0.1)
+    backdrop-filter: blur(10px)
+    -webkit-backdrop-filter: blur(10px)
+    overflow-y: scroll
+    height: 70vh
+    @include scroll($scroll-width: 0.2rem)
+    
+      

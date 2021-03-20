@@ -25,9 +25,9 @@ export default function ChatComponent({ roomID }) {
   }, [roomID]);
 
   return (
-    <div>
+    <>
       <ChatWindow messages={messages} />
       <ChatInput roomID={roomID} />
-    </div>
+    </>
   );
 }

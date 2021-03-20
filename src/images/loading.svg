@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 202">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #6e00ff;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #6e00ff;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="Camada_2" data-name="Camada 2">
+    <g id="Camada_1-2" data-name="Camada 1">
+      <path class="cls-1"
+        d="M207.05,109.87v4.42c-17.45-5.55-40.53-12-65.15-18.28C119,90.19,97.69,85.35,80.35,81.93V77.7c18.89,4,40.13,8.94,62.49,14.62C165.88,98.17,188.13,104.21,207.05,109.87Z" />
+      <circle class="cls-1" cx="140" cy="101" r="59.65" />
+      <path
+        d="M199.65,101A59.65,59.65,0,0,1,88.17,130.53a59.28,59.28,0,0,0,40.54,16c33.1,0,59.94-27.15,59.94-60.63a60.8,60.8,0,0,0-6.11-26.69A59.4,59.4,0,0,1,199.65,101Z" />
+      <path class="cls-1"
+        d="M207.05,109.87v4.42c23.07,7.33,37.49,13.24,36.89,15.61-1.06,4.17-48.45-4.28-105.86-18.87S35,81.24,36.06,77.07c.63-2.49,18.35-.28,44.29,4.86V77.7C34.1,67.92,1.15,63.51,0,67.92c-1.58,6.22,59.8,27.19,137.11,46.84S278.39,145.28,280,139.05C281.07,134.7,251.41,123.15,207.05,109.87Z" />
+      <circle class="cls-2" cx="140" cy="101" r="100" />
+      <circle cx="89.92" cy="13.9" r="7.12">
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="rotate"
+          from="0 140 100"
+          to="360 140 100"
+          dur="10s"
+          repeatCount="indefinite"
+        />
+      </circle>
+      <circle class="cls-2" cx="140" cy="101" r="76.38" />
+      <circle class="cls-1" cx="216.38" cy="88.85" r="11.15">
+      <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="rotate"
+          from="360 140 100"
+          to="0 140 100"
+          dur="5s"
+          repeatCount="indefinite"
+        />
+      </circle>
+    </g>
+  </g>
+</svg>

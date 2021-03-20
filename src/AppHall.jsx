@@ -3,6 +3,8 @@ import RoomComponent from "./components/RoomComponent";
 import ChatComponent from "./components/ChatComponent";
 import firebase from "firebase/app";
 import "firebase/firestore";
+import logo from "./images/logo.svg";
+import "./AppHall.sass";
 
 export default function AppHall() {
   const { displayName, photoURL } = firebase.auth().currentUser;
@@ -27,28 +29,30 @@ export default function AppHall() {
   }, []);
 
   return (
-    <div>
-      <h1>AppHall</h1>
-      <section className="welcome-section">
-        <img alt={displayName} src={photoURL} />
-        <h2>{displayName}</h2>
-      </section>
-      <section>
-        {rooms &&
-          rooms.map((room) => {
-            return (
-              <RoomComponent
-                key={room.roomID}
-                roomName={room.roomName}
-                onClick={() => setActiveRoomID(room.roomID)}
-              />
-            );
-          })}
-      </section>
-      <section>
-        <ChatComponent roomID={activeRoomID} />
-      </section>
-      <button onClick={() => firebase.auth().signOut()}>SignOut</button>
+    <div className="app-container">
+      <header>
+        <img className="logo" src={logo} alt="huanca chat" />
+        <p className="logout" onClick={() => firebase.auth().signOut()}>
+          SignOut
+        </p>
+      </header>
+      <div className="app-content">
+        <nav className="rooms-container">
+          {rooms &&
+            rooms.map((room) => {
+              return (
+                <RoomComponent
+                  key={room.roomID}
+                  roomName={room.roomName}
+                  onClick={() => setActiveRoomID(room.roomID)}
+                />
+              );
+            })}
+        </nav>
+        <section className="chat-section">
+          <ChatComponent roomID={activeRoomID} />
+        </section>
+      </div>
     </div>
   );
 }

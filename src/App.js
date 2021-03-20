@@ -1,9 +1,10 @@
 import firebase from "firebase/app";
-import "./App.css";
+import "./App.sass";
 import "firebase/auth";
 import { useState } from "react";
 import AppHall from "./AppHall";
 import SignIn from "./SignIn";
+import loading from "./images/loading.svg";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -38,7 +39,11 @@ function App() {
 }
 
 function SplashScreen() {
-  return <h1>Loading</h1>;
+  return (
+    <div className="splash-container">
+      <img className="splash-svg" alt="loading" src={loading} />
+    </div>
+  );
 }
 
 export default App;
