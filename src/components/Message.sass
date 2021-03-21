@@ -1,10 +1,18 @@
+@import '../env'
+
 .message-container
   display: flex
   background-color: white
   width: fit-content
   border-radius: 100px
   margin: 0.5rem 0.5rem 0
-
+  &.mine
+    background-color: $main-color
+    color: white
+    align-self: flex-end
+  &.their
+    background-color: white
+    color: black
   p
     display: flex
     padding: 0.5rem 1rem

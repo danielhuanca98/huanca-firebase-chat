@@ -1,33 +1,45 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import firebase from "firebase/app";
 import ChatWindow from "./ChatWindow";
-import ChatInput from "./ChatInput";
 
-export default function ChatComponent({ roomID }) {
+export default function ChatComponent({ roomID, user }) {
   const [messages, setMessages] = useState([]);
+  const dummy = useRef();
 
   useEffect(() => {
     if (roomID === "") return;
     const db = firebase.firestore();
-    db.collection(`livechat/${roomID}/messages`).onSnapshot((querySnapshot) => {
+    const messagesCollectionRef = db
+      .collection(`livechat/${roomID}/messages`)
+      .orderBy("createdAt")
+      .limit(50);
+    messagesCollectionRef.onSnapshot((querySnapshot) => {
       let newMessagesArray = [];
       querySnapshot.forEach((message) => {
+        const messageData = message.data();
         newMessagesArray = [
           ...newMessagesArray,
           {
             msgID: message.id,
-            msgText: message.data().text,
+            senderID: messageData.senderID
+              ? messageData.senderID
+              : "odz5xdB7IqaFESEzAivs54Lce1l1",
+            msgText: messageData.text,
+            createdAt: messageData.createdAt,
           },
         ];
       });
+      const changes = querySnapshot.docChanges();
+      if (changes[0] && changes[0].doc.data().createdAt === null) return;
       setMessages(newMessagesArray);
+      dummy.current.scrollIntoView({ behavior: "smooth" });
     });
   }, [roomID]);
 
   return (
     <>
-      <ChatWindow messages={messages} />
-      <ChatInput roomID={roomID} />
+      <ChatWindow messages={messages} user={user} />
+      <span ref={dummy} />
     </>
   );
 }

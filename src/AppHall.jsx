@@ -5,9 +5,10 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import logo from "./images/logo.svg";
 import "./AppHall.sass";
+import ChatInput from "./components/ChatInput";
 
 export default function AppHall() {
-  const { displayName, photoURL } = firebase.auth().currentUser;
+  const { displayName, photoURL, uid } = firebase.auth().currentUser;
   const [rooms, setRooms] = useState([]);
   const [activeRoomID, setActiveRoomID] = useState("");
 
@@ -50,7 +51,12 @@ export default function AppHall() {
             })}
         </nav>
         <section className="chat-section">
-          <ChatComponent roomID={activeRoomID} />
+          <div className="chat-container">
+            <ChatComponent roomID={activeRoomID} user={uid} />
+          </div>
+          <div className="input-container">
+            <ChatInput roomID={activeRoomID} user={uid} />
+          </div>
         </section>
       </div>
     </div>

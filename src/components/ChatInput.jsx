@@ -3,16 +3,19 @@ import firebase from "firebase/app";
 import send from "../images/send.svg";
 import "./ChatInput.sass";
 
-export default function ChatInput({ roomID }) {
+export default function ChatInput({ roomID, user }) {
   const db = firebase.firestore();
   const [input, setInput] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (input === "") return;
 
     db.collection(`livechat/${roomID}/messages`)
       .add({
         text: input,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        senderID: user,
       })
       .then((result) => {
         setInput("");

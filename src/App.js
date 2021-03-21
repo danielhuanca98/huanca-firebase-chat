@@ -32,8 +32,7 @@ function App() {
 
   return (
     <div className="App">
-      {isLoading && <SplashScreen />}
-      {user ? <AppHall /> : <SignIn />}
+      {isLoading ? <SplashScreen /> : user ? <AppHall /> : <SignIn />}
     </div>
   );
 }

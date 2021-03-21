@@ -38,9 +38,15 @@
     position: relative
     background-color: rgba(255, 255, 255, 0.1)
     backdrop-filter: blur(10px)
-    -webkit-backdrop-filter: blur(10px)
-    overflow-y: scroll
-    height: 70vh
-    @include scroll($scroll-width: 0.2rem)
+    -webkit-backdrop-filter: blur(10px)    
+    height: 70vh    
+
+    .chat-container
+      display: flex
+      flex-direction: column
+      flex: 1
+      overflow-y: scroll
+      @include scroll($scroll-width: 0.2rem)
+      padding-bottom: 1rem
     
       
