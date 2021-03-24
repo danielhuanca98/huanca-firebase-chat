@@ -26,6 +26,7 @@ export default function ChatComponent({ roomID, user }) {
               : "odz5xdB7IqaFESEzAivs54Lce1l1",
             msgText: messageData.text,
             createdAt: messageData.createdAt,
+            senderName: messageData.senderName,
           },
         ];
       });

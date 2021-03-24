@@ -1,18 +1,24 @@
 @import '../env'
 
-.message-container
+.message-super-container
   display: flex
-  background-color: white
-  width: fit-content
-  border-radius: 100px
-  margin: 0.5rem 0.5rem 0
+  flex-direction: column
   &.mine
-    background-color: $main-color
-    color: white
-    align-self: flex-end
+    align-items: flex-end
   &.their
-    background-color: white
-    color: black
-  p
+    align-items: flex-start
+  .message-container
     display: flex
-    padding: 0.5rem 1rem
+    background-color: white
+    width: fit-content
+    border-radius: 100px
+    margin: 0.5rem 0.5rem 0
+    &.mine
+      background-color: $main-color
+      color: white
+    &.their
+      background-color: white
+      color: black
+    p
+      display: flex
+      padding: 0.5rem 1rem

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import Message from "./Message";
 
 export default function ChatWindow({ messages, user }) {
@@ -13,6 +13,7 @@ export default function ChatWindow({ messages, user }) {
               text={msg.msgText}
               createdAt={msg.createdAt}
               classname={classname}
+              sender={msg.senderName}
             />
           );
         })}

@@ -3,7 +3,7 @@ import firebase from "firebase/app";
 import send from "../images/send.svg";
 import "./ChatInput.sass";
 
-export default function ChatInput({ roomID, user }) {
+export default function ChatInput({ roomID, user, displayName }) {
   const db = firebase.firestore();
   const [input, setInput] = useState("");
 
@@ -16,6 +16,7 @@ export default function ChatInput({ roomID, user }) {
         text: input,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         senderID: user,
+        senderName: displayName,
       })
       .then((result) => {
         setInput("");
