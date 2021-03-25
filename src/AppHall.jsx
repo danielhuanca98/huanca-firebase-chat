@@ -43,6 +43,19 @@ export default function AppHall() {
       });
   };
 
+  const deleteRoom = async () => {
+    const db = firebase.firestore();
+    const myRoomRef = await db
+      .collection("livechat")
+      .where("ownerID", "==", uid)
+      .get();
+    myRoomRef.forEach(async (room) => {
+      const res = await room.ref.delete();
+      setMyRoomID("");
+      setActiveRoomID("U9CNPBDf2zdwN0KbqQ9r");
+    });
+  };
+
   return (
     <div className="app-container">
       <header>
@@ -65,11 +78,10 @@ export default function AppHall() {
                 />
               );
             })}
-          {myRoomID.length > 0 ? (
-            <></>
-          ) : (
+          {myRoomID.length > 0 ? null : (
             <RoomComponent roomName="Open my Room" onClick={openMyRoom} />
           )}
+          <button onClick={deleteRoom}>delete</button>
         </nav>
         <section className="chat-section">
           <div className="chat-container">
